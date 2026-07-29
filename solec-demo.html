@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solec Finanzas — Lizet Solórzano Lecona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blanco-hueso:#FAF8F3;
+    --beige-calido:#EDE6D6;
+    --beige-arena:#C9BBA0;
+    --verde-salvia:#6F8567;
+    --verde-salvia-suave:#8FA187;
+    --verde-pino:#2B3A2A;
+    --tinta:#232821;
+    --tinta-suave:#4B554A;
+    --max-w:1180px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--blanco-hueso);
+    color:var(--tinta);
+    font-family:'Public Sans', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--tinta);
+  }
+
+  .eyebrow{
+    font-size:0.72rem;
+    font-weight:600;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--verde-salvia);
+    display:inline-block;
+  }
+
+  .container{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 32px;
+    position:relative;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(250,248,243,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(201,187,160,0.4);
+  }
+  .nav-inner{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:20px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+  }
+  .logo .mark{ color:var(--verde-salvia); font-size:0.9em; }
+  .logo .sub{
+    font-family:'Public Sans', sans-serif;
+    font-size:0.6rem;
+    font-weight:600;
+    letter-spacing:0.22em;
+    color:var(--tinta-suave);
+    text-transform:uppercase;
+    display:block;
+    margin-top:2px;
+  }
+  .nav-links{
+    display:flex;
+    gap:36px;
+    list-style:none;
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .nav-links a{
+    position:relative;
+    padding-bottom:4px;
+    transition:color .25s ease;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width:0%; height:1px;
+    background:var(--verde-salvia);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover{ color:var(--verde-salvia); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    font-size:0.72rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    background:var(--verde-pino);
+    color:var(--blanco-hueso);
+    padding:11px 22px;
+    border-radius:999px;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .nav-cta:hover{ background:var(--verde-salvia); transform:translateY(-1px); }
+  @media(max-width:860px){ .nav-links{display:none;} }
+
+  /* ---------- SENDERO (firma) ---------- */
+  #sendero-wrap{
+    position:absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:1;
+  }
+  #sendero-svg{
+    position:absolute;
+    left:26px;
+    top:0;
+    width:56px;
+    height:100%;
+  }
+  @media(max-width:900px){ #sendero-svg{ display:none; } }
+  .sendero-path{
+    fill:none;
+    stroke:var(--verde-salvia);
+    stroke-width:1.4;
+    stroke-linecap:round;
+    opacity:0.55;
+  }
+  .sendero-dot{
+    fill:var(--verde-salvia);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:110px 32px 130px;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:var(--blanco-hueso);
+  }
+  .hero-bg::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    clip-path:polygon(0 0, 74% 0, 46% 100%, 0 100%);
+    background:linear-gradient(135deg, var(--verde-pino) 0%, var(--verde-salvia) 65%, var(--verde-salvia-suave) 100%);
+    background-size:200% 200%;
+    animation: driftBg 24s ease-in-out infinite alternate;
+  }
+  .hero-bg::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    clip-path:polygon(0 0, 74% 0, 46% 100%, 0 100%);
+    background:radial-gradient(circle at 30% 25%, rgba(255,255,255,0.16), transparent 55%);
+  }
+  @keyframes driftBg{
+    0%{ background-position: 0% 0%; }
+    100%{ background-position: 30% 20%; }
+  }
+  @media(max-width:760px){
+    .hero-bg::before, .hero-bg::after{ clip-path:none; }
+  }
+  .hero-inner{
+    max-width:var(--max-w);
+    margin:0 auto;
+    position:relative;
+  }
+  .hero .eyebrow{ color:var(--beige-calido); }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.4rem);
+    line-height:1.08;
+    max-width:14ch;
+    margin:26px 0 28px;
+    color:var(--blanco-hueso);
+  }
+  .hero p.sub{
+    font-size:1.05rem;
+    color:rgba(250,248,243,0.82);
+    max-width:46ch;
+    margin-bottom:40px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .btn-primary{
+    background:var(--beige-calido);
+    color:var(--verde-pino);
+    padding:15px 30px;
+    border-radius:999px;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); background:var(--blanco-hueso); }
+  .btn-secondary{
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    color:rgba(250,248,243,0.9);
+    border-bottom:1px solid rgba(250,248,243,0.4);
+    padding-bottom:3px;
+    transition:border-color .25s ease, color .25s ease;
+  }
+  .btn-secondary:hover{ color:var(--beige-calido); border-color:var(--beige-calido); }
+  .hero-credential{
+    margin-top:64px;
+    display:flex;
+    gap:14px;
+    align-items:center;
+    font-size:0.78rem;
+    color:rgba(250,248,243,0.75);
+    letter-spacing:0.02em;
+  }
+  .hero-credential .line{ width:34px; height:1px; background:rgba(250,248,243,0.4); }
+
+  /* ---------- CONFIANZA (franja corporativa) ---------- */
+  .confianza{
+    background:var(--verde-pino);
+    color:var(--blanco-hueso);
+    padding:56px 32px;
+  }
+  .confianza-inner{
+    max-width:var(--max-w);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:36px;
+  }
+  .confianza-item{
+    border-left:1px solid rgba(250,248,243,0.25);
+    padding-left:22px;
+  }
+  .confianza-item .num{
+    font-family:'Fraunces', serif;
+    font-size:clamp(2rem,3.6vw,2.7rem);
+    line-height:1;
+  }
+  .confianza-item .label{
+    margin-top:10px;
+    font-size:0.78rem;
+    letter-spacing:0.05em;
+    color:rgba(250,248,243,0.75);
+    max-width:22ch;
+  }
+
+  /* ---------- UBICACIÓN ---------- */
+  .ubicacion{
+    padding:90px 32px;
+  }
+  .ubicacion-inner{
+    max-width:var(--max-w);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:0.85fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media(max-width:800px){ .ubicacion-inner{ grid-template-columns:1fr; } }
+  .ubicacion-art{
+    color:var(--verde-salvia);
+  }
+  .ubicacion-art svg{ width:100%; height:auto; max-width:320px; }
+  .ubicacion-copy h3{ font-size:clamp(1.5rem,2.8vw,2rem); margin-top:12px; }
+  .ubicacion-copy p{ color:var(--tinta-suave); margin-top:16px; max-width:44ch; }
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .8s cubic-bezier(.2,.6,.2,1), transform .8s cubic-bezier(.2,.6,.2,1);
+  }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .stagger.is-visible{ transition-delay:calc(var(--i,0) * 90ms); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ position:relative; padding:100px 32px; }
+  .section-alt{ background:var(--beige-calido); }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{ font-size:clamp(1.9rem,3.4vw,2.6rem); margin-top:14px; }
+  .section-head p{ margin-top:16px; color:var(--tinta-suave); font-size:1rem; }
+
+  /* ---------- COMPROMISO ---------- */
+  .compromiso{
+    max-width:760px;
+  }
+  .compromiso blockquote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(1.3rem, 2.6vw, 1.7rem);
+    line-height:1.5;
+    color:var(--verde-pino);
+    margin:24px 0 28px;
+  }
+  .compromiso p{ color:var(--tinta-suave); font-size:1.02rem; max-width:60ch; }
+  .compromiso .firma{
+    margin-top:32px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--tinta);
+  }
+  .compromiso .firma span{
+    display:block;
+    font-family:'Public Sans', sans-serif;
+    font-style:normal;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--tinta-suave);
+    margin-top:4px;
+  }
+
+  /* ---------- SERVICIOS ---------- */
+  .servicios-group{
+    position:relative;
+    padding:64px 0;
+    border-top:1px solid rgba(201,187,160,0.5);
+  }
+  .servicios-group:first-of-type{ border-top:none; }
+  .ghost-num{
+    position:absolute;
+    top:-6px;
+    right:0;
+    font-family:'Fraunces', serif;
+    font-size:clamp(5rem, 14vw, 9.5rem);
+    color:rgba(201,187,160,0.28);
+    line-height:1;
+    z-index:0;
+    user-select:none;
+  }
+  .servicios-group-head{
+    position:relative;
+    z-index:1;
+    max-width:560px;
+    margin-bottom:44px;
+  }
+  .servicios-group-head h3{
+    font-size:clamp(1.6rem,3vw,2.1rem);
+    margin-top:10px;
+  }
+  .servicios-group-head .pull{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--verde-pino);
+    font-size:1.05rem;
+    margin-top:14px;
+  }
+  .servicio-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:36px 44px;
+  }
+  .servicio-item{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .servicio-icon{
+    flex:none;
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid var(--beige-arena);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--verde-salvia);
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .servicio-item:hover .servicio-icon{ border-color:var(--verde-salvia); transform:translateY(-2px); }
+  .servicio-icon svg{ width:18px; height:18px; }
+  .servicio-text h4{
+    font-size:1rem;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--tinta);
+  }
+  .servicio-text p{
+    font-size:0.9rem;
+    color:var(--tinta-suave);
+  }
+
+  /* ---------- CONTACTO ---------- */
+  .contacto-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  @media(max-width:800px){ .contacto-wrap{ grid-template-columns:1fr; } }
+  .contacto-copy h2{ font-size:clamp(1.9rem,3.4vw,2.5rem); margin-top:14px; }
+  .contacto-copy p{ color:var(--tinta-suave); margin-top:16px; max-width:42ch; }
+  .whatsapp-btn{
+    margin-top:32px;
+    background:var(--verde-pino);
+    color:var(--blanco-hueso);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 28px;
+    border-radius:999px;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .whatsapp-btn:hover{ transform:translateY(-2px); background:var(--verde-salvia); }
+
+  .form-card{
+    background:var(--blanco-hueso);
+    border:1px solid rgba(201,187,160,0.6);
+    border-radius:18px;
+    padding:36px;
+  }
+  .form-row{ margin-bottom:20px; }
+  .form-row label{
+    display:block;
+    font-size:0.7rem;
+    font-weight:600;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--tinta-suave);
+    margin-bottom:8px;
+  }
+  .form-row input, .form-row textarea{
+    width:100%;
+    border:none;
+    border-bottom:1px solid var(--beige-arena);
+    background:transparent;
+    padding:10px 2px;
+    font-family:'Public Sans', sans-serif;
+    font-size:0.95rem;
+    color:var(--tinta);
+    outline:none;
+    transition:border-color .25s ease;
+  }
+  .form-row input:focus, .form-row textarea:focus{ border-color:var(--verde-salvia); }
+  .form-submit{
+    width:100%;
+    background:var(--verde-pino);
+    color:var(--blanco-hueso);
+    border:none;
+    padding:14px;
+    border-radius:999px;
+    font-size:0.8rem;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    margin-top:6px;
+    transition:background .25s ease;
+  }
+  .form-submit:hover{ background:var(--verde-salvia); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--verde-pino);
+    color:var(--blanco-hueso);
+    padding:56px 32px 28px;
+  }
+  .footer-inner{
+    max-width:var(--max-w);
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-bottom:32px;
+    border-bottom:1px solid rgba(250,248,243,0.15);
+  }
+  .footer-brand .logo-f{
+    font-family:'Fraunces', serif;
+    font-size:1.2rem;
+    font-weight:600;
+  }
+  .footer-brand p{
+    font-size:0.82rem;
+    color:rgba(250,248,243,0.7);
+    margin-top:6px;
+  }
+  .footer-social{ display:flex; gap:18px; }
+  .footer-social a{
+    width:36px; height:36px;
+    border:1px solid rgba(250,248,243,0.3);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .footer-social a:hover{ background:rgba(250,248,243,0.1); border-color:rgba(250,248,243,0.6); }
+  .footer-social svg{ width:16px; height:16px; }
+  .footer-bottom{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding-top:22px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:0.72rem;
+    color:rgba(250,248,243,0.55);
+    letter-spacing:0.03em;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-bg{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">SOLEC <span class="mark">✦</span> FINANZAS</div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#para-ti">Para ti</a></li>
+      <li><a href="#para-tu-empresa">Para tu empresa</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Agenda una llamada</a>
+  </div>
+</nav>
+
+<div id="sendero-wrap">
+  <svg id="sendero-svg" viewBox="0 0 100 3400" preserveAspectRatio="none">
+    <path id="sendero-path" class="sendero-path"
+      d="M50,0 C85,180 15,340 50,520 C90,700 10,860 50,1040
+         C88,1220 12,1380 50,1560 C90,1740 10,1900 50,2080
+         C86,2260 14,2420 50,2600 C88,2780 12,2940 50,3120
+         C82,3260 18,3320 50,3400" />
+    <circle id="sendero-dot" class="sendero-dot" r="4.2" cx="50" cy="0"></circle>
+  </svg>
+</div>
+
+<header class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <span class="eyebrow">Asesoría financiera independiente</span>
+    <h1>Planea con estrategia.<br>Vive con tranquilidad.</h1>
+    <p class="sub">Diez años acompañando a personas, familias y empresas a construir claridad financiera — sin recetas genéricas, con un plan hecho a tu medida y a tu ritmo.</p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-3.6-6.7"/><path d="M20 4l-8.4 8.4"/></svg>
+        Escríbeme por WhatsApp
+      </a>
+      <a href="#para-ti" class="btn-secondary">Conoce cómo puedo ayudarte ↓</a>
+    </div>
+    <div class="hero-credential">
+      <span class="line"></span>
+      <span>10 años de experiencia · Planes personales, familiares y empresariales</span>
+    </div>
+  </div>
+</header>
+
+<section class="confianza">
+  <div class="confianza-inner">
+    <div class="confianza-item reveal stagger" style="--i:0;">
+      <div class="num">10+ años</div>
+      <div class="label">De trayectoria en asesoría financiera y patrimonial.</div>
+    </div>
+    <div class="confianza-item reveal stagger" style="--i:1;">
+      <div class="num">Personas y empresas</div>
+      <div class="label">Planes individuales, familiares y esquemas colectivos.</div>
+    </div>
+    <div class="confianza-item reveal stagger" style="--i:2;">
+      <div class="num">100% independiente</div>
+      <div class="label">Sin ataduras a una sola aseguradora — la estrategia se adapta a ti.</div>
+    </div>
+  </div>
+</section>
+
+<section class="ubicacion section-alt">
+  <div class="ubicacion-inner">
+    <div class="ubicacion-art reveal">
+      <svg viewBox="0 0 200 320" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Torre / skyline -->
+        <rect x="120" y="90" width="46" height="200" />
+        <path d="M120 90 L143 66 L166 90" />
+        <line x1="143" y1="66" x2="143" y2="40" />
+        <line x1="128" y1="120" x2="128" y2="290" stroke-width="1" opacity="0.5" />
+        <line x1="158" y1="120" x2="158" y2="290" stroke-width="1" opacity="0.5" />
+        <rect x="176" y="150" width="20" height="140" opacity="0.6" />
+        <!-- Columna del Ángel -->
+        <line x1="55" y1="120" x2="55" y2="270" />
+        <line x1="46" y1="270" x2="64" y2="270" />
+        <line x1="40" y1="290" x2="70" y2="290" />
+        <line x1="40" y1="290" x2="46" y2="270" />
+        <line x1="70" y1="290" x2="64" y2="270" />
+        <!-- Figura alada -->
+        <circle cx="55" cy="96" r="7" />
+        <line x1="55" y1="103" x2="55" y2="120" />
+        <path d="M55 108 C 35 100 20 108 12 96" />
+        <path d="M55 108 C 75 100 90 108 98 96" />
+        <path d="M40 84 A 15 15 0 0 1 70 84" />
+      </svg>
+    </div>
+    <div class="ubicacion-copy reveal">
+      <span class="eyebrow">Nuestra oficina</span>
+      <h3>En el corazón financiero de la ciudad.</h3>
+      <p>Oficinas en Torre New York Life, sobre Paseo de la Reforma — a un costado del Ángel de la Independencia. Un punto de encuentro pensado para reuniones con equipos directivos y de recursos humanos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="compromiso-section">
+  <div class="container compromiso reveal">
+    <span class="eyebrow">Mi compromiso</span>
+    <blockquote>"Antes de hablar de números, escucho tu historia — tus metas, tus dudas y lo que realmente te quita el sueño."</blockquote>
+    <p>Creo que el dinero no debería ser una fuente de ansiedad, sino una herramienta para vivir con más libertad. Mi trabajo es sanar esa relación contigo: convertir metas dispersas en un plan claro, sostenible y hecho para tu momento de vida — con transparencia y visión de largo plazo en cada decisión.</p>
+    <div class="firma">Lizet Solórzano
+      <span>Asesora financiera independiente</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="para-ti">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">¿Cómo puedo ayudarte?</span>
+      <h2>Un plan distinto para cada etapa de tu vida.</h2>
+    </div>
+
+    <div class="servicios-group">
+      <span class="ghost-num">01</span>
+      <div class="servicios-group-head reveal">
+        <span class="eyebrow">Para ti</span>
+        <h3>Personas y familias</h3>
+        <p class="pull">Cada etapa de vida pide una estrategia distinta.</p>
+      </div>
+      <div class="servicio-grid">
+
+        <div class="servicio-item reveal stagger" style="--i:0;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.2l2 5.6-5.6-2z"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Planeación financiera</h4>
+            <p>Un plan claro para administrar tus recursos y avanzar hacia tus metas.</p>
+          </div>
+        </div>
+
+        <div class="servicio-item reveal stagger" style="--i:1;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18c3-6 6-4 8-9"/><path d="M12 9c1.8 0 3-1.4 3-3.2S13.8 3 12 3s-3 1.2-3 3 1.2 3 3 3z"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Ahorro e inversión con protección</h4>
+            <p>Construye patrimonio a largo plazo, con respaldo incluido.</p>
+          </div>
+        </div>
+
+        <div class="servicio-item reveal stagger" style="--i:2;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.4-7-10.4C5 6.6 8 4 12 4s7 2.6 7 6.6C19 16.6 12 21 12 21z"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Seguros de vida</h4>
+            <p>Tranquilidad económica para quienes dependen de ti.</p>
+          </div>
+        </div>
+
+        <div class="servicio-item reveal stagger" style="--i:3;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6.5C6 5 9 5 12 6.5c3-1.5 6-1.5 8 0v11c-2-1.5-5-1.5-8 0-3-1.5-6-1.5-8 0z"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Educación para tus hijos</h4>
+            <p>Los recursos para su futuro académico, planeados desde hoy.</p>
+          </div>
+        </div>
+
+        <div class="servicio-item reveal stagger" style="--i:4;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Gastos Médicos Mayores</h4>
+            <p>Protección ante imprevistos de salud, a tu medida.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="servicios-group" id="para-tu-empresa">
+      <span class="ghost-num">02</span>
+      <div class="servicios-group-head reveal">
+        <span class="eyebrow">Para tu empresa</span>
+        <h3>Soluciones empresariales</h3>
+        <p class="pull">La protección de tu equipo es la continuidad de tu negocio.</p>
+      </div>
+      <div class="servicio-grid">
+        <div class="servicio-item reveal stagger" style="--i:5;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="11" rx="1.4"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Protección empresarial</h4>
+            <p>Esquemas de beneficios, seguros de socios y hombres clave, y estrategias de continuidad para tu negocio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container contacto-wrap">
+    <div class="contacto-copy reveal">
+      <span class="eyebrow">Hablemos</span>
+      <h2>El primer paso es una conversación.</h2>
+      <p>Cuéntame en qué etapa estás y diseñamos juntos el plan — sin compromiso, con toda claridad.</p>
+      <a href="#" class="whatsapp-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-3.6-6.7"/><path d="M20 4l-8.4 8.4"/></svg>
+        Escríbeme por WhatsApp
+      </a>
+    </div>
+    <div class="form-card reveal">
+      <div class="form-row"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+      <div class="form-row"><label>Correo</label><input type="email" placeholder="tucorreo@ejemplo.com"></div>
+      <div class="form-row"><label>Mensaje</label><textarea rows="3" placeholder="Cuéntame en qué te puedo ayudar"></textarea></div>
+      <button class="form-submit">Enviar mensaje</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-f">SOLEC FINANZAS</div>
+      <p>Lizet Solórzano Lecona · Asesora Financiera Independiente</p>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+      <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c0 2.8 2 5 5 5"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9h2V6h-2c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.2l.8-3H14V9z"/></svg></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Solec Finanzas</span>
+    <span>Diseñado por Cuadrado Circular</span>
+  </div>
+</footer>
+
+<script>
+  // Sendero: dibujo progresivo + punto que recorre la ruta según el scroll
+  (function(){
+    var path = document.getElementById('sendero-path');
+    var dot = document.getElementById('sendero-dot');
+    if(!path || !dot) return;
+    var len = path.getTotalLength();
+    path.style.strokeDasharray = len;
+    path.style.strokeDashoffset = len;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ticking = false;
+
+    function update(){
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
+
+      if(!reduceMotion){
+        path.style.strokeDashoffset = len - (len * progress);
+      } else {
+        path.style.strokeDashoffset = 0;
+      }
+      var point = path.getPointAtLength(len * progress);
+      dot.setAttribute('cx', point.x);
+      dot.setAttribute('cy', point.y);
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function(){
+      if(!ticking){
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    });
+    update();
+  })();
+
+  // Animaciones al hacer scroll (reveal)
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.15, rootMargin:'0px 0px -60px 0px' });
+    els.forEach(function(el){ obs.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
