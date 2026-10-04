@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solec Finanzas — Lizet Solórzano Lecona</title>
+<title>Solec Finanzas — Lizeth Solórzano Lecona</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -287,6 +287,34 @@
     max-width:22ch;
   }
 
+  /* ---------- ALIADOS + ESTADÍSTICA ---------- */
+  .aliados-section{
+    background:var(--verde-pino);
+    color:var(--blanco-hueso);
+  }
+  .aliados-head{ max-width:640px; margin-bottom:48px; }
+  .aliados-head .eyebrow{ color:var(--beige-calido); }
+  .aliados-head p{
+    margin-top:16px;
+    color:rgba(250,248,243,0.82);
+    font-size:1.02rem;
+    max-width:64ch;
+  }
+  .stats-intro{
+    display:block;
+    font-size:0.95rem;
+    color:rgba(250,248,243,0.75);
+    margin-bottom:28px;
+    max-width:56ch;
+  }
+  .stats-source{
+    display:block;
+    margin-top:28px;
+    font-size:0.75rem;
+    color:rgba(250,248,243,0.5);
+    letter-spacing:0.03em;
+  }
+
   /* ---------- UBICACIÓN ---------- */
   .ubicacion{
     padding:90px 32px;
@@ -562,8 +590,8 @@
     <div class="logo">SOLEC <span class="mark">✦</span> FINANZAS</div>
     <ul class="nav-links">
       <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#para-ti">Para ti</a></li>
       <li><a href="#para-tu-empresa">Para tu empresa</a></li>
+      <li><a href="#para-ti">Para ti</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <a href="#contacto" class="nav-cta">Agenda una llamada</a>
@@ -584,19 +612,19 @@
 <header class="hero" id="inicio">
   <div class="hero-bg"></div>
   <div class="container hero-inner">
-    <span class="eyebrow">Asesoría financiera independiente</span>
-    <h1>Planea con estrategia.<br>Vive con tranquilidad.</h1>
-    <p class="sub">Diez años acompañando a personas, familias y empresas a construir claridad financiera — sin recetas genéricas, con un plan hecho a tu medida y a tu ritmo.</p>
+    <span class="eyebrow">Previsión financiera y beneficios corporativos</span>
+    <h1>Estrategias que protegen a las personas, fortalecen a las empresas.</h1>
+    <p class="sub">Más de veinte años en administración y finanzas, y más de diez años en el sector asegurador, diseñando esquemas de protección y beneficios corporativos para organizaciones — y planes personales para quienes las lideran.</p>
     <div class="hero-ctas">
       <a href="#contacto" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-3.6-6.7"/><path d="M20 4l-8.4 8.4"/></svg>
-        Escríbeme por WhatsApp
+        Escríbanos por WhatsApp
       </a>
-      <a href="#para-ti" class="btn-secondary">Conoce cómo puedo ayudarte ↓</a>
+      <a href="#para-ti" class="btn-secondary">Conoce cómo podemos ayudarte ↓</a>
     </div>
     <div class="hero-credential">
       <span class="line"></span>
-      <span>10 años de experiencia · Planes personales, familiares y empresariales</span>
+      <span>Aliada de New York Life, AXA, Sura, Mapfre y Plan Seguro · Estrategias para empresas, familias y personas</span>
     </div>
   </div>
 </header>
@@ -651,26 +679,113 @@
   </div>
 </section>
 
+<section class="aliados-section" id="aliados">
+  <div class="container">
+    <div class="aliados-head reveal">
+      <span class="eyebrow">Red de aliados estratégicos</span>
+      <p>Mantenemos alianzas estratégicas con aseguradoras líderes del sector — New York Life Seguros Monterrey, AXA, Plan Seguro, Sura y Mapfre — que nos permiten analizar distintas alternativas y presentar propuestas objetivas, alineadas a las necesidades de cada organización.</p>
+    </div>
+    <span class="stats-intro reveal">Las organizaciones con equipos más comprometidos registran, en promedio:</span>
+    <div class="confianza-inner">
+      <div class="confianza-item reveal stagger" style="--i:0;">
+        <div class="num">+23%</div>
+        <div class="label">Más rentabilidad</div>
+      </div>
+      <div class="confianza-item reveal stagger" style="--i:1;">
+        <div class="num">+18%</div>
+        <div class="label">Mayor productividad</div>
+      </div>
+      <div class="confianza-item reveal stagger" style="--i:2;">
+        <div class="num">-78%</div>
+        <div class="label">Menos ausentismo</div>
+      </div>
+    </div>
+    <span class="stats-source reveal">Fuente: Gallup Workplace, Q12 Meta-Analysis (11th Edition, 2024).</span>
+  </div>
+</section>
+
 <section class="compromiso-section">
   <div class="container compromiso reveal">
-    <span class="eyebrow">Mi compromiso</span>
-    <blockquote>"Antes de hablar de números, escucho tu historia — tus metas, tus dudas y lo que realmente te quita el sueño."</blockquote>
-    <p>Creo que el dinero no debería ser una fuente de ansiedad, sino una herramienta para vivir con más libertad. Mi trabajo es sanar esa relación contigo: convertir metas dispersas en un plan claro, sostenible y hecho para tu momento de vida — con transparencia y visión de largo plazo en cada decisión.</p>
-    <div class="firma">Lizet Solórzano
+    <span class="eyebrow">Nuestro compromiso</span>
+    <blockquote>"Las organizaciones más sólidas son aquellas que protegen a las personas que hacen posible su crecimiento."</blockquote>
+    <p>Diseñamos estrategias de protección y bienestar que fortalecen a las organizaciones y a las personas que las conforman — con un enfoque consultivo, objetivo y cercano en cada etapa del proceso.</p>
+    <div class="firma">Lic. Lizeth Solórzano Lecona
       <span>Asesora financiera independiente</span>
     </div>
   </div>
 </section>
 
-<section class="section-alt" id="para-ti">
+<section class="section-alt" id="para-tu-empresa">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">¿Cómo puedo ayudarte?</span>
+      <span class="eyebrow">¿Cómo podemos ayudarte?</span>
       <h2>Un plan distinto para cada etapa de tu vida.</h2>
     </div>
 
     <div class="servicios-group">
       <span class="ghost-num">01</span>
+      <div class="servicios-group-head reveal">
+        <span class="eyebrow">Para tu empresa</span>
+        <h3>Soluciones empresariales</h3>
+        <p class="pull">La protección de tu equipo es la continuidad de tu negocio.</p>
+      </div>
+      <div class="servicio-grid">
+
+        <div class="servicio-item reveal stagger" style="--i:0;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M12 9v6M9 12h6"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Seguro de Gastos Médicos Mayores Colectivo</h4>
+            <p>Cobertura médica para todo tu equipo, con planes ajustados al tamaño y necesidades de tu organización.</p>
+          </div>
+        </div>
+
+        <div class="servicio-item reveal stagger" style="--i:1;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 20c0-3 2.5-5 5-5s5 2 5 5"/><path d="M11 20c0-3 2.5-5 5-5s5 2 5 5"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Seguro de Vida Colectivo</h4>
+            <p>Protección económica para las familias de tus colaboradores, como parte de una cultura de cuidado real.</p>
+          </div>
+        </div>
+
+        <div class="servicio-item reveal stagger" style="--i:2;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/><path d="M7 11l2-3 2 2 3-4"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Diagnóstico de Protección Corporativa</h4>
+            <p>Un análisis a fondo de los riesgos y coberturas actuales de tu empresa, antes de proponer cualquier solución.</p>
+          </div>
+        </div>
+
+        <div class="servicio-item reveal stagger" style="--i:3;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="18" height="11" rx="1.4"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Consultoría en Beneficios Corporativos</h4>
+            <p>Diseño de esquemas de compensación y bienestar que atraen y retienen al talento clave.</p>
+          </div>
+        </div>
+
+        <div class="servicio-item reveal stagger" style="--i:4;">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6M9 9h6v6"/></svg>
+          </div>
+          <div class="servicio-text">
+            <h4>Acompañamiento e implementación</h4>
+            <p>Gestión de altas, bajas, siniestros y renovaciones — para que el beneficio funcione sin fricciones para tu equipo de RH.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="servicios-group" id="para-ti">
+      <span class="ghost-num">02</span>
       <div class="servicios-group-head reveal">
         <span class="eyebrow">Para ti</span>
         <h3>Personas y familias</h3>
@@ -678,7 +793,7 @@
       </div>
       <div class="servicio-grid">
 
-        <div class="servicio-item reveal stagger" style="--i:0;">
+        <div class="servicio-item reveal stagger" style="--i:5;">
           <div class="servicio-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.2l2 5.6-5.6-2z"/></svg>
           </div>
@@ -688,7 +803,7 @@
           </div>
         </div>
 
-        <div class="servicio-item reveal stagger" style="--i:1;">
+        <div class="servicio-item reveal stagger" style="--i:6;">
           <div class="servicio-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18c3-6 6-4 8-9"/><path d="M12 9c1.8 0 3-1.4 3-3.2S13.8 3 12 3s-3 1.2-3 3 1.2 3 3 3z"/></svg>
           </div>
@@ -698,7 +813,7 @@
           </div>
         </div>
 
-        <div class="servicio-item reveal stagger" style="--i:2;">
+        <div class="servicio-item reveal stagger" style="--i:7;">
           <div class="servicio-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.4-7-10.4C5 6.6 8 4 12 4s7 2.6 7 6.6C19 16.6 12 21 12 21z"/></svg>
           </div>
@@ -708,7 +823,7 @@
           </div>
         </div>
 
-        <div class="servicio-item reveal stagger" style="--i:3;">
+        <div class="servicio-item reveal stagger" style="--i:8;">
           <div class="servicio-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6.5C6 5 9 5 12 6.5c3-1.5 6-1.5 8 0v11c-2-1.5-5-1.5-8 0-3-1.5-6-1.5-8 0z"/></svg>
           </div>
@@ -718,7 +833,7 @@
           </div>
         </div>
 
-        <div class="servicio-item reveal stagger" style="--i:4;">
+        <div class="servicio-item reveal stagger" style="--i:9;">
           <div class="servicio-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg>
           </div>
@@ -731,26 +846,6 @@
       </div>
     </div>
 
-    <div class="servicios-group" id="para-tu-empresa">
-      <span class="ghost-num">02</span>
-      <div class="servicios-group-head reveal">
-        <span class="eyebrow">Para tu empresa</span>
-        <h3>Soluciones empresariales</h3>
-        <p class="pull">La protección de tu equipo es la continuidad de tu negocio.</p>
-      </div>
-      <div class="servicio-grid">
-        <div class="servicio-item reveal stagger" style="--i:5;">
-          <div class="servicio-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="11" rx="1.4"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          </div>
-          <div class="servicio-text">
-            <h4>Protección empresarial</h4>
-            <p>Esquemas de beneficios, seguros de socios y hombres clave, y estrategias de continuidad para tu negocio.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -759,16 +854,16 @@
     <div class="contacto-copy reveal">
       <span class="eyebrow">Hablemos</span>
       <h2>El primer paso es una conversación.</h2>
-      <p>Cuéntame en qué etapa estás y diseñamos juntos el plan — sin compromiso, con toda claridad.</p>
+      <p>Cuéntanos en qué etapa está tu organización y diseñamos juntos la estrategia — sin compromiso, con toda claridad.</p>
       <a href="#" class="whatsapp-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-3.6-6.7"/><path d="M20 4l-8.4 8.4"/></svg>
-        Escríbeme por WhatsApp
+        Escríbanos por WhatsApp
       </a>
     </div>
     <div class="form-card reveal">
       <div class="form-row"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
       <div class="form-row"><label>Correo</label><input type="email" placeholder="tucorreo@ejemplo.com"></div>
-      <div class="form-row"><label>Mensaje</label><textarea rows="3" placeholder="Cuéntame en qué te puedo ayudar"></textarea></div>
+      <div class="form-row"><label>Mensaje</label><textarea rows="3" placeholder="Cuéntanos en qué te podemos ayudar"></textarea></div>
       <button class="form-submit">Enviar mensaje</button>
     </div>
   </div>
@@ -778,7 +873,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="logo-f">SOLEC FINANZAS</div>
-      <p>Lizet Solórzano Lecona · Asesora Financiera Independiente</p>
+      <p>Consultoría en Previsión Financiera y Beneficios Corporativos</p>
     </div>
     <div class="footer-social">
       <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>

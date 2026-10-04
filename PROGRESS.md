@@ -3,6 +3,22 @@
 Cliente: Lizeth Solórzano Lecona
 Marca del sitio: Solec Finanzas (solecfinanzas.com) — marca corporativa, distinta de su marca personal "LS" (previsión financiera y beneficios corporativos), que no se usa en este sitio.
 Comercial: $3,000 MXN año 1 ($1,000 diseño + $2,000 servicio anual) / $2,000 MXN año renovación.
+Repo: https://github.com/george30510/solec-finanzas
+
+## Notas para Claude Code (VS Code)
+
+- Este repo hoy solo tiene un demo estático (`solec-demo.html`) — el sitio completo aún no está scaffoldeado.
+- Stack a usar cuando arranque la construcción: Next.js 14 App Router, Supabase, TypeScript, Tailwind CSS, Vercel — mismo stack que el resto de proyectos de Cuadrado Circular (ver CC-OS, Venue Pass).
+- No inventes convenciones nuevas de diseño: toma la paleta, tipografía y sistema de componentes ya definidos abajo directamente de `solec-demo.html` (es la fuente de verdad visual, ya aprobada por el cliente).
+- Antes de generar código nuevo, confirma con Jorge si el sitemap de "Estructura propuesta" abajo ya está cerrado — puede seguir en discusión en un chat de Claude.ai en paralelo.
+- Corrección pendiente en todo el copy: el nombre correcto de la clienta es **Lizeth**, no Lizet.
+
+## Flujo de trabajo con Netlify (importante)
+
+- Este repo está conectado a Netlify (plan gratuito) con **deploy automático en cada push a `main`**.
+- Jorge quiere **minimizar el número de deploys** — no hacer push por cada ajuste pequeño.
+- Antes de hacer push: agrupar varios cambios/páginas en un solo commit/push cuando sea posible.
+- Para iterar visualmente sin gastar deploys, previsualizar en local primero (abrir el HTML directo en navegador, o `netlify dev` si ya hay build step) antes de subir a `main`.
 
 ## Estado actual
 
@@ -32,7 +48,7 @@ Su cliente principal real es **empresas que contratan seguros colectivos** (B2B)
 - Estadística citada: Gallup Workplace Q12 Meta-Analysis (11th Edition, 2024) — +23% rentabilidad, +18% productividad, -78% ausentismo en organizaciones con equipos más comprometidos.
 - Foto profesional real de Lizeth disponible — usar en la página Nosotros, no en Inicio.
 
-## Estructura propuesta para el sitio completo (en definición)
+## Sitemap del sitio completo (cerrado)
 
 4 páginas cotizadas: **Inicio, Soluciones (renombrada de "Servicios"), Nosotros, Contacto.**
 
