@@ -1,7 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import AliadosSection from "@/components/AliadosSection";
-import { IconGroup, IconLeaf, IconBriefcase } from "@/components/icons";
+import {
+  IconGroup,
+  IconLeaf,
+  IconBriefcase,
+  IconCoins,
+  IconShieldCheck,
+  IconHome,
+  IconSunset,
+  IconTree,
+  IconMagnifierCheck,
+  IconTarget,
+  IconShieldCross,
+  IconBlocks,
+  IconTrend,
+} from "@/components/icons";
 
 const tresCaminos = [
   {
@@ -24,6 +38,14 @@ const tresCaminos = [
   },
 ];
 
+const preguntaIconos = [
+  { label: "Ingresos", icon: <IconCoins /> },
+  { label: "Protección", icon: <IconShieldCheck /> },
+  { label: "Patrimonio", icon: <IconHome /> },
+  { label: "Retiro", icon: <IconSunset /> },
+  { label: "Legado", icon: <IconTree /> },
+];
+
 const afSteps = [
   { num: "01", title: "Diagnóstico", desc: "Ingresos · gastos · deudas · activos · pasivos · protección actual" },
   { num: "02", title: "Metas", desc: "Corto · mediano · largo plazo" },
@@ -37,10 +59,29 @@ export default function InicioPage() {
     <>
       {/* 1. HERO */}
       <header className="hero" id="inicio">
+        <div className="hero-bg">
+          <Image
+            src="/images/lizeth-solorzano-hero-tratada.jpg"
+            alt="Lizeth Solórzano Lecona, consultora en previsión financiera y beneficios corporativos"
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
         <div className="container hero-inner">
           <div className="hero-copy">
-            <h1>Toma el control de tu futuro.</h1>
-            <p className="hero-tagline">Con una estrategia, todo se conecta.</p>
+            <h1>
+              Toma el control
+              <br />
+              de tu futuro.
+            </h1>
+            <p className="hero-tagline">
+              Con una estrategia,
+              <br />
+              todo se conecta.
+            </p>
             <div className="hero-firma">
               <span className="hero-firma-nombre">Lizeth Solórzano Lecona</span>
               <span className="hero-firma-cargo">
@@ -61,20 +102,14 @@ export default function InicioPage() {
               </Link>
             </div>
           </div>
-          <div className="hero-foto-col">
-            <p className="hero-foto-caption">Decisiones hoy para una vida con más libertad.</p>
-            <div className="hero-foto">
-              <Image
-                src="/images/lizeth-solorzano-hero-tratada.jpg"
-                alt="Lizeth Solórzano Lecona, consultora en previsión financiera y beneficios corporativos"
-                fill
-                priority
-                sizes="(max-width: 900px) 100vw, 440px"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          </div>
         </div>
+        <p className="hero-foto-caption">
+          Decisiones hoy
+          <br />
+          para una vida
+          <br />
+          con más libertad.
+        </p>
       </header>
 
       {/* 2. TRES CAMINOS (mini, bajo el hero) */}
@@ -119,9 +154,11 @@ export default function InicioPage() {
           </div>
         </div>
         <div className="pregunta-icons">
-          {["Ingresos", "Protección", "Patrimonio", "Retiro", "Legado"].map((label) => (
+          {preguntaIconos.map(({ label, icon }) => (
             <div className="pregunta-icon-item reveal" key={label}>
-              <div className="dot" />
+              <div className="dot" aria-hidden="true">
+                {icon}
+              </div>
               <span>{label}</span>
             </div>
           ))}
@@ -133,9 +170,7 @@ export default function InicioPage() {
         <div className="af-inner">
           <div className="af-copy">
             <span className="eyebrow">Arquitectura Financiera</span>
-            <h2 style={{ marginTop: 12, marginBottom: 28 }}>
-              Una visión integral para tomar mejores decisiones financieras.
-            </h2>
+            <h2>Una visión integral para tomar mejores decisiones financieras.</h2>
             <p>
               Antes de hablar de soluciones, analizamos tu realidad. Porque una estrategia
               verdaderamente personalizada comienza por entender dónde estás, qué quieres lograr
@@ -152,18 +187,43 @@ export default function InicioPage() {
                 </div>
               ))}
             </div>
-            <Link href="/#arquitectura" className="ver-todas" style={{ marginTop: 40, display: "inline-block" }}>
+            <Link href="/#arquitectura" className="btn-primary on-light" style={{ marginTop: 40 }}>
               Conoce Arquitectura Financiera →
             </Link>
           </div>
           <div className="af-diagram-col reveal">
             <div className="af-diagram">
               <div className="af-hub">TU ESTRUCTURA FINANCIERA</div>
-              <span className="af-spoke top">Diagnóstico</span>
-              <span className="af-spoke right">Metas</span>
-              <span className="af-spoke bottom-right">Protección</span>
-              <span className="af-spoke bottom">Construcción</span>
-              <span className="af-spoke left">Proyección</span>
+              <span className="af-spoke top">
+                <span className="af-node" aria-hidden="true">
+                  <IconMagnifierCheck />
+                </span>
+                Diagnóstico
+              </span>
+              <span className="af-spoke right">
+                <span className="af-node" aria-hidden="true">
+                  <IconTarget />
+                </span>
+                Metas
+              </span>
+              <span className="af-spoke bottom-right">
+                <span className="af-node" aria-hidden="true">
+                  <IconShieldCross />
+                </span>
+                Protección
+              </span>
+              <span className="af-spoke bottom-left">
+                <span className="af-node" aria-hidden="true">
+                  <IconBlocks />
+                </span>
+                Construcción
+              </span>
+              <span className="af-spoke left">
+                <span className="af-node" aria-hidden="true">
+                  <IconTrend />
+                </span>
+                Proyección
+              </span>
             </div>
             <p className="af-diagram-note">
               Primero entendemos tu realidad. Después diseñamos la estrategia. Finalmente
@@ -175,8 +235,10 @@ export default function InicioPage() {
 
       {/* 5. TRES CAMINOS (completo) */}
       <section>
-        <div className="section-head reveal">
-          <h2>Una estrategia diferente para cada realidad.</h2>
+        <div className="container">
+          <div className="section-head reveal">
+            <h2>Una estrategia diferente para cada realidad.</h2>
+          </div>
         </div>
         <div className="caminos-grid">
           <div className="camino-card reveal">
@@ -269,41 +331,58 @@ export default function InicioPage() {
               <li>Patrimonio</li>
               <li>Metas</li>
             </ul>
-            <div className="form-row">
-              <label>Nombre completo</label>
-              <input type="text" placeholder="" />
-            </div>
-            <div className="form-row">
-              <label>Correo electrónico</label>
-              <input type="email" placeholder="" />
-            </div>
-            <div className="form-row">
-              <label>WhatsApp</label>
-              <input type="tel" placeholder="" />
-            </div>
-            <button type="button" className="form-submit">
-              Descargar checklist
-            </button>
+            <fieldset className="form-fieldset" disabled aria-describedby="checklist-nota">
+              <div className="form-row">
+                <label htmlFor="checklist-nombre">Nombre completo</label>
+                <input id="checklist-nombre" name="nombre" type="text" autoComplete="name" />
+              </div>
+              <div className="form-row">
+                <label htmlFor="checklist-correo">Correo electrónico</label>
+                <input id="checklist-correo" name="correo" type="email" autoComplete="email" />
+              </div>
+              <div className="form-row">
+                <label htmlFor="checklist-whatsapp">WhatsApp</label>
+                <input id="checklist-whatsapp" name="whatsapp" type="tel" autoComplete="tel" />
+              </div>
+              <button type="button" className="form-submit">
+                Descargar checklist
+              </button>
+            </fieldset>
+            <p className="form-note" id="checklist-nota">
+              Disponible muy pronto.
+            </p>
           </div>
         </div>
       </section>
 
       {/* 8. SOBRE LIZETH (teaser) */}
-      <section className="section-alt">
-        <div className="container teaser-nosotros-inner">
-          <div className="teaser-nosotros-foto reveal">
+      <section className="section-alt" id="sobre-lizeth">
+        <div className="container sobre-inner">
+          <div className="sobre-foto reveal">
             <Image
               src="/images/lizeth-solorzano.jpg"
-              alt="Lizeth Solórzano Lecona"
+              alt="Lizeth Solórzano Lecona, consultora en previsión financiera y beneficios corporativos"
               fill
-              sizes="120px"
-              style={{ objectFit: "cover" }}
+              sizes="(max-width: 800px) 100vw, 380px"
+              style={{ objectFit: "cover", objectPosition: "48% center" }}
             />
           </div>
-          <div className="teaser-nosotros-copy reveal">
+          <div className="sobre-copy reveal">
             <span className="eyebrow">Sobre Lizeth</span>
-            <p>Una conversación financiera empieza con confianza.</p>
-            <Link href="/nosotros" className="ver-todas">
+            <h2>Una conversación financiera empieza con confianza.</h2>
+            <p>
+              Soy Lizeth Solórzano Lecona, Consultora en Previsión Financiera y Beneficios
+              Corporativos.
+            </p>
+            <p>
+              Mi experiencia profesional combina más de 20 años en administración y finanzas de
+              una de las aseguradoras más importantes del sector asegurador.
+            </p>
+            <p>
+              Mi propósito es ayudarte a transformar tus decisiones financieras en una estructura
+              de mayor claridad, protección y visión de futuro.
+            </p>
+            <Link href="/nosotros" className="btn-primary on-light">
               Conoce más sobre mí →
             </Link>
           </div>

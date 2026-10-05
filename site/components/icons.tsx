@@ -132,3 +132,79 @@ export function IconWhatsapp() {
     </svg>
   );
 }
+
+export function IconCoins() {
+  return (
+    <svg {...common}>
+      <rect x="3" y="6.5" width="18" height="11" rx="1.6" />
+      <circle cx="12" cy="12" r="2.6" />
+      <path d="M6.5 10v4M17.5 10v4" />
+    </svg>
+  );
+}
+
+export function IconShieldCheck() {
+  return (
+    <svg {...common}>
+      <path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z" />
+      <path d="M9 12l2.2 2.2L15.5 10" />
+    </svg>
+  );
+}
+
+export function IconHome() {
+  return (
+    <svg {...common}>
+      <path d="M4 11l8-6.5 8 6.5" />
+      <path d="M6 10v9h12v-9" />
+      <path d="M10 19v-5h4v5" />
+    </svg>
+  );
+}
+
+export function IconSunset() {
+  return (
+    <svg {...common}>
+      <path d="M7.5 17a4.5 4.5 0 0 1 9 0" />
+      <path d="M12 6v2.5M5.6 9.6l1.7 1.7M18.4 9.6l-1.7 1.7M3 17h18M7 20.5h10" />
+    </svg>
+  );
+}
+
+export function IconTree() {
+  return (
+    <svg {...common}>
+      <circle cx="12" cy="9.5" r="6.2" />
+      <path d="M12 21v-6.5M12 14.5l-2.8-2.8M12 14.5l2.8-2.8M12 12V7.5" />
+    </svg>
+  );
+}
+
+export function IconTarget() {
+  return (
+    <svg {...common}>
+      <circle cx="12" cy="12" r="8.5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="12" cy="12" r="0.9" />
+    </svg>
+  );
+}
+
+export function IconBlocks() {
+  return (
+    <svg {...common}>
+      <rect x="4" y="13.5" width="7" height="6.5" rx="1" />
+      <rect x="13" y="13.5" width="7" height="6.5" rx="1" />
+      <rect x="8.5" y="4" width="7" height="6.5" rx="1" />
+    </svg>
+  );
+}
+
+export function IconTrend() {
+  return (
+    <svg {...common}>
+      <path d="M4 17l5-5 4 4 7-8" />
+      <path d="M15 8h5v5" />
+    </svg>
+  );
+}
